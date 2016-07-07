@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="xyI-7p-m2J">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Grillage-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Grillage" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,209 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Kn8-k5-GBG">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uLt-2e-hOL">
+                                <rect key="frame" x="285" y="285" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="bJ1-KZ-3Jg"/>
+                                    <constraint firstAttribute="width" constant="30" id="idC-Fe-LzI"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="ocM-EY-51p"/>
+                                </constraints>
+                                <state key="normal" image="me"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="ocM-EY-51p"/>
+                                    </mask>
+                                </variation>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aT8-Ly-oLZ">
+                                <rect key="frame" x="270" y="510" width="60" height="60"/>
+                                <accessibility key="accessibilityConfiguration" identifier="addPadlock"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="28F-XG-0Md"/>
+                                    <constraint firstAttribute="width" constant="60" id="T3T-D4-PnG"/>
+                                </constraints>
+                                <state key="normal" image="add-padlock"/>
+                                <connections>
+                                    <segue destination="tSQ-DU-b1Q" kind="show" id="paz-Tu-Xz8"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="aT8-Ly-oLZ" secondAttribute="bottom" constant="30" id="4uC-I6-f6n"/>
+                            <constraint firstItem="uLt-2e-hOL" firstAttribute="centerX" secondItem="aT8-Ly-oLZ" secondAttribute="centerX" id="59J-nr-C4R"/>
+                            <constraint firstItem="Kn8-k5-GBG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Ide-iG-Zsp"/>
+                            <constraint firstItem="Kn8-k5-GBG" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="SNv-q4-Y5t"/>
+                            <constraint firstAttribute="trailing" secondItem="Kn8-k5-GBG" secondAttribute="trailing" id="bqq-yg-MCt"/>
+                            <constraint firstItem="Kn8-k5-GBG" firstAttribute="centerX" secondItem="aT8-Ly-oLZ" secondAttribute="centerX" id="fgA-e5-nHG"/>
+                            <constraint firstItem="uLt-2e-hOL" firstAttribute="top" secondItem="aT8-Ly-oLZ" secondAttribute="bottom" constant="30" id="iN5-lG-EzZ"/>
+                            <constraint firstItem="Kn8-k5-GBG" firstAttribute="centerY" secondItem="uLt-2e-hOL" secondAttribute="centerY" id="ic2-qM-d2w"/>
+                            <constraint firstItem="Kn8-k5-GBG" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="qdl-2r-xSc"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="iN5-lG-EzZ"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="Grillage" id="DWa-eJ-SYe"/>
+                    <connections>
+                        <outlet property="mapView" destination="Kn8-k5-GBG" id="2ld-vQ-qCH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1192" y="257"/>
+        </scene>
+        <!--Text a padlock-->
+        <scene sceneID="RR7-Ge-7lU">
+            <objects>
+                <viewController id="ckl-rE-z7I" customClass="PostController" customModule="Grillage" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="unL-KB-o38"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ljh-MF-tOm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GUl-jT-Icc">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="rK0-Ol-Uvy">
+                                <rect key="frame" x="20" y="20" width="560" height="580"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="text-p" translatesAutoresizingMaskIntoConstraints="NO" id="wHp-TY-qz5">
+                                        <rect key="frame" x="198" y="0.0" width="164" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="w92-8M-uv5"/>
+                                        </constraints>
+                                    </imageView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" text="What's up here ?" translatesAutoresizingMaskIntoConstraints="NO" id="rfy-ry-se1">
+                                        <rect key="frame" x="0.0" y="64" width="560" height="442"/>
+                                        <color key="backgroundColor" red="0.90588235289999997" green="0.1215686275" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="lockText"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ym6-4I-are">
+                                        <rect key="frame" x="0.0" y="520" width="560" height="60"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="sendLock"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="din-8X-KtC"/>
+                                        </constraints>
+                                        <state key="normal" image="ok"/>
+                                        <connections>
+                                            <action selector="sendMessage:" destination="ckl-rE-z7I" eventType="touchUpInside" id="dRn-v6-77S"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" id="YB5-2F-1e3"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="rfy-ry-se1" firstAttribute="leading" secondItem="rK0-Ol-Uvy" secondAttribute="leading" id="dIb-NT-ePg"/>
+                                    <constraint firstItem="rfy-ry-se1" firstAttribute="leading" secondItem="Ym6-4I-are" secondAttribute="leading" id="kEG-ZP-1TG"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rK0-Ol-Uvy" firstAttribute="leading" secondItem="GUl-jT-Icc" secondAttribute="leadingMargin" id="IAe-xi-t7v"/>
+                            <constraint firstItem="rK0-Ol-Uvy" firstAttribute="top" secondItem="unL-KB-o38" secondAttribute="bottom" id="J0u-po-4Bb"/>
+                            <constraint firstItem="rK0-Ol-Uvy" firstAttribute="trailing" secondItem="GUl-jT-Icc" secondAttribute="trailingMargin" id="Pqj-d8-REN"/>
+                            <constraint firstItem="rK0-Ol-Uvy" firstAttribute="bottom" secondItem="Ljh-MF-tOm" secondAttribute="top" id="fYT-tv-vdS"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Text a padlock" id="is5-w8-JfA"/>
+                    <connections>
+                        <outlet property="padlockText" destination="rfy-ry-se1" id="MTy-1k-gvP"/>
+                        <outlet property="sendButton" destination="Ym6-4I-are" id="Mhz-7v-ecA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1oQ-L1-OBW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2982" y="726"/>
+        </scene>
+        <!--Add a padlock-->
+        <scene sceneID="Tqo-a2-LFi">
+            <objects>
+                <viewController id="tSQ-DU-b1Q" customClass="TypeChoiceController" customModule="Grillage" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DLC-zd-XSl"/>
+                        <viewControllerLayoutGuide type="bottom" id="qIo-de-HPv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MiP-aD-hnd">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="P7Y-cv-cI8">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4aW-2U-NrE">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="290"/>
+                                        <color key="backgroundColor" red="0.90588235294117647" green="0.12156862745098039" blue="0.24313725490196078" alpha="1" colorSpace="calibratedRGB"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="cameraOpenButton"/>
+                                        <state key="normal" image="photo"/>
+                                        <connections>
+                                            <action selector="openCamera:" destination="tSQ-DU-b1Q" eventType="touchUpInside" id="sEG-kt-EOE"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4bf-0u-Mb3">
+                                        <rect key="frame" x="0.0" y="290" width="600" height="290"/>
+                                        <state key="normal" image="text-p"/>
+                                        <connections>
+                                            <segue destination="ckl-rE-z7I" kind="show" id="ddH-bk-tla"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="4aW-2U-NrE" secondAttribute="trailing" id="ac1-Ne-Qof"/>
+                                    <constraint firstItem="4aW-2U-NrE" firstAttribute="trailing" secondItem="4bf-0u-Mb3" secondAttribute="trailing" id="kyE-Aa-Mk0"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="P7Y-cv-cI8" firstAttribute="leading" secondItem="MiP-aD-hnd" secondAttribute="leadingMargin" constant="-20" id="6ZP-zL-VjG"/>
+                            <constraint firstItem="P7Y-cv-cI8" firstAttribute="top" secondItem="DLC-zd-XSl" secondAttribute="bottom" id="78I-HA-Ak9"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="P7Y-cv-cI8" secondAttribute="bottom" id="m6d-yN-1YT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="P7Y-cv-cI8" secondAttribute="trailing" constant="-20" id="ybF-gg-8EV"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add a padlock" id="qU8-Dx-BBL"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KIn-v2-VdA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1920" y="257"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="fSl-LU-pLV">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xyI-7p-m2J" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XXb-a1-Oao">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="cuN-fV-JYa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CtW-u7-40Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="380" y="257"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="add-padlock" width="164" height="164"/>
+        <image name="me" width="164" height="164"/>
+        <image name="ok" width="164" height="164"/>
+        <image name="photo" width="164" height="164"/>
+        <image name="text-p" width="164" height="164"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="YB5-2F-1e3"/>
+    </inferredMetricsTieBreakers>
 </document>
